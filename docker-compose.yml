@@ -1,0 +1,38 @@
+version: '3'
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: lamp_edu
+      MYSQL_USER: nmoore_edu
+      MYSQL_PASSWORD: password_edu
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d"
+    networks:
+      - edu-docker
+  www:
+    depends_on:
+      - db
+    image: php:7.4.1-apache
+    volumes:
+      - "./www/:/var/www/html"
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - edu-docker
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8001:80
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+    networks:
+      - edu-docker
+networks:
+  edu-docker:
+    driver: bridge
