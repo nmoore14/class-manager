@@ -1,5 +1,5 @@
 <?php
-class BaseChaptersController {
+class BaseController {
     /**
     * __call magic method
     */
@@ -41,7 +41,7 @@ class BaseChaptersController {
         }
 
         echo $data;
-        exit;
+        exit();
     }
 }
 ?>
