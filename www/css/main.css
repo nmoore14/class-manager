@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+
+:root {
+    --main: #022c3d;
+    --secondary: #fff;
+    --main-bg: #eaeaea;
+    --secondary-bg: #3766df;
+    --accent-bg: #fff;
+    --main-ds: rgba(2, 44, 61, .25);
+    --title-font: 'Poppins', sans-serif;
+    --body-font: 'Tenor Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--main-bg);
+    font-size: 12pt;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+    height: 4rem;
+    background-color: var(--secondary-bg);
+}
+
+.title {
+    color: var(--secondary);
+    font-family: var(--title-font);
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.date {
+    padding: .5rem;
+    border-radius: .25rem;
+    font-family: var(--body-font);
+    font-size: 1.25rem;
+    font-weight: normal;
+    background-color: var(--main-bg);
+    color: var(--main);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 1rem;
+}
+
+.body-title {
+    color: var(--main);
+    font-family: var(--title-font);
+    font-weight: lighter;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.chapters {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    padding: .5rem 1rem 1rem 1rem;
+    background-color: var(--accent-bg);
+    border-radius: 1rem;
+}
+
+.chapter-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.chapter-card {
+    display: flex;
+    flex-direction: column;
+    flex-flow: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    width: 20rem;
+    height: 4rem;
+    text-decoration: none;
+    background-color: var(--accent-bg);
+    border: 2px solid var(--main);
+    border-radius: .5rem;
+    transition: ease-in-out .2s;
+}
+
+.chapter-card:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px var(--main-ds));
+    transition: ease-in-out .2s;
+}
+
+.chapter-title {
+    font-family: var(--title-font);
+    font-size: 3rem;
+    color: var(--main);
+}
