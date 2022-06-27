@@ -18,8 +18,6 @@ if((isset($uri[3]) && !in_array($uri_api_path, $api_paths)) || !isset($uri[4])) 
     exit();
 }
 
-require PROJECT_ROOT_PATH . "/controller/ChapterContentController.php";
-
 // Initialize API controllers
 $chapterFeedController = new ChapterContentController();
 $projectFeedController = new ProjectContentController();
@@ -31,7 +29,7 @@ if ($uri_api_path == 'chapters') {
 
 if ($uri_api_path == 'projects') {
     $strMethodName = $uri_api_method . "Projects";
-    $chapterFeedController->{$strMethodName}();
+    $projectFeedController->{$strMethodName}();
 }
 
 ?>
