@@ -1,0 +1,173 @@
+/*
+* Sources and References
+* Toggle switch css from https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8
+*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
+
+:root {
+    --bg-primary: #F8FAFC;
+    --fg-primary: #000000;
+    --emerald-50: #ecfdf5;
+    --emerald-100: #d1fae5;
+    --emerald-200: #a7f3d0;
+    --emerald-300: #6ee7b7;
+    --emerald-400: #34d399;
+    --gray-100: #f2f4f6;
+    --gray-200: #e5e7eb;
+    --gray-sunglasses: var(--gray-200);
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --violet-200: #ddd5fe;
+    --violet-300: #c4b5fd;
+    --violet-400: #a78bfa;
+    --violet-600: #7c3aed;
+    --violet-700: #6d28d9;
+    --violet-800: #5b21b6;
+    --linear-primary: linear-gradient(to right, var(--violet-600) 0%, var(--violet-800) 100%);
+    --header-font: 'Ubuntu', sans-serif;
+    --body-font: 'Ubuntu Mono', sans-serif;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #334155;
+    --gray-sunglasses: #000000;
+    --linear-primary: linear-gradient(to right, var(--emerald-300) 0%, var(--emerald-400) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--bg-primary);
+    transition: ease-in-out .5s;
+}
+
+h1 {
+    font-family: var(--header-font);
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.header-lowercase {
+    text-transform: lowercase;
+}
+
+.header-gradient-text {
+    background: var(--linear-primary);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    transition: ease-in-out .5s;
+}
+
+.header-graphic {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: -1000;
+}
+
+.header-graphic > img{
+    width: 100%;
+}
+
+.header-image {
+    position: absolute;
+    transform: translateY(-1000);
+    opacity: 0;
+    transition: ease-in-out .5s;
+}
+
+.active-graphic {
+    transform: translateY(0);
+    opacity: 1.0;
+    transition: ease-in-out .5s;
+}
+
+.header-main {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    padding: 1rem 2rem;
+    z-index: 1;
+}
+
+/* Theme toggle section */
+.header-theme-toggle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: .25rem .5rem;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+    background: var(--linear-primary) ;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: ease-in-out .5s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    width: 26px;
+    transition: ease-in-out .5s;
+}
+
+input:checked + .slider {
+    background: var(--linear-primary) ;
+    transition: ease-in-out .5s;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    transition: ease-in-out .5s;
+}
+
+.slider.round {
+  border-radius: 34px;
+  transition: 0s;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.sunglasses {
+    width: 3rem;
+    height: auto;
+    padding: .5rem;
+    color: var(--gray-sunglasses);
+    transition: ease-in-out .5s;
+}
