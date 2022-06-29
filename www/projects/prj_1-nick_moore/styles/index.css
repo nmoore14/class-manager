@@ -2,7 +2,7 @@
 * Sources and References
 * Toggle switch css from https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8
 */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,700;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
 
 
@@ -26,14 +26,20 @@
     --violet-700: #6d28d9;
     --violet-800: #5b21b6;
     --linear-primary: linear-gradient(to right, var(--violet-600) 0%, var(--violet-800) 100%);
+    --linear-glass: linear-gradient(to bottom right, rgba(93, 95, 239, .25), rgba(109, 40, 217, .15));
     --header-font: 'Ubuntu', sans-serif;
     --body-font: 'Ubuntu Mono', sans-serif;
+    --body-color: var(--gray-700);
+    --link-color: var(--violet-600);
 }
 
 [data-theme="dark"] {
     --bg-primary: #334155;
+    --fg-primary: var(--gray-100);
     --gray-sunglasses: #000000;
     --linear-primary: linear-gradient(to right, var(--emerald-300) 0%, var(--emerald-400) 100%);
+    --body-color: var(--gray-200);
+    --link-color: var(--emerald-400);
 }
 
 * {
@@ -47,10 +53,29 @@ html {
     transition: ease-in-out .5s;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 h1 {
     font-family: var(--header-font);
     font-weight: bold;
     font-size: 3rem;
+    color: var(--fg-primary);
+}
+
+h3 {
+    font-family: var(--header-font);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--fg-primary);
 }
 
 .header-lowercase {
@@ -100,6 +125,21 @@ h1 {
     height: 5rem;
     padding: 1rem 2rem;
     z-index: 1;
+}
+
+.header-nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.nav-item {
+    font-family: var(--header-font);
+    font-weight: 200;
+    color: var(--link-color);
+    text-decoration: none;
 }
 
 /* Theme toggle section */
@@ -170,4 +210,129 @@ input:checked + .slider:before {
     padding: .5rem;
     color: var(--gray-sunglasses);
     transition: ease-in-out .5s;
+}
+
+/*****************************************
+****          MAIN ELEMENT            ****
+*****************************************/
+main {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.main-content {
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.main-content-headline {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-right: 1.5rem;
+}
+
+.main-content-subtitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: -1rem;
+}
+
+.main-content-title {
+    font-size: 8rem;
+    font-weight: 300;
+}
+
+.main-blob {
+    position: absolute;
+    z-index: 0;
+}
+
+.main-content-info-card {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    height: 30rem;
+    margin-left: -3rem;
+    background: var(--linear-glass);
+    border-radius: 2em;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(109, 40, 217, 0.05);
+    background-clip: padding-box;
+    box-shadow: 10px 15px 40px rgba(109, 40, 217, .20);
+}
+
+.info-card-img {
+    position: absolute;
+    width: 16rem;
+    height: 16rem;
+    top: -8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    filter: drop-shadow(0px 10px 10px rgba(109, 40, 217, .30));
+}
+
+.info-card-img > img {
+    width: 16rem;
+    height: 16rem;
+}
+
+.info-card-content {
+    position: absolute;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1.25rem;
+}
+
+.info-card-content > p {
+    font-family: var(--body-font);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+    text-align: center;
+    color: var(--body-color);
+}
+
+.span-title {
+    font-family: var(--body-font);
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--body-color);
+}
+
+.info-card-links {
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    bottom: 0;
+    padding-bottom: 1rem;
+}
+
+.info-card-links > a {
+    text-decoration: none;
+}
+
+.info-card-links > a > svg {
+    width: 4rem;
+    height: 4rem;
 }
