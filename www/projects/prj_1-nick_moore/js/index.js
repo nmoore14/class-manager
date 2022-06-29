@@ -9,8 +9,14 @@ const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme
 const headerImageLight = 'media/images/bg-wave-1.png';
 const headerImageDark = 'media/images/bg-wave-2.png';
 
-const gradientColor1 = document.getElementById('gradient-color-1');
-const gradientColor2 = document.getElementById('gradient-color-2');
+// Blob gradient colors
+const blobGradientColor1 = document.getElementById('gradient-color-1');
+const blobGradientColor2 = document.getElementById('gradient-color-2');
+
+// External link gradient colors
+const iconBackgroundGradientColor1 = document.getElementsByClassName('icon-gradient-color-1');
+const iconBackgroundGradientColor2 = document.getElementsByClassName('icon-gradient-color-2');
+
 
 if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -32,16 +38,32 @@ function setHeaderImage() {
     } 
 }
 
-function updateBlobColors() {
+function updateGradientColors() {
     let theme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
 
+    let blobColor1 = '#EF5DA8';
+    let blobColor2 = '#C4B5FD';
+    let iconColor1 = '#DDD6FE';
+    let iconColor2 = '#D1FAE5';
+
     if (theme === 'dark') {
-        gradientColor1.setAttribute('stop-color', '#34D399');
-        gradientColor2.setAttribute('stop-color', '#6D28D9');
-    } else {
-        gradientColor1.setAttribute('stop-color', '#EF5DA8');
-        gradientColor2.setAttribute('stop-color', '#C4B5FD');
+        blobColor1 = '#34D399';
+        blobColor2 = '#6D28D9';
+        iconColor1 = '#374151';
+        iconColor2 = '#000000';
     }
+
+    blobGradientColor1.setAttribute('stop-color', blobColor1);
+    blobGradientColor2.setAttribute('stop-color', blobColor2);
+
+    for (let i = 0; i < iconBackgroundGradientColor1.length; i++ ) {
+        iconBackgroundGradientColor1[i].setAttribute('stop-color', iconColor1);
+    }
+
+    for (let i = 0; i < iconBackgroundGradientColor2.length; i++ ) {
+        iconBackgroundGradientColor2[i].setAttribute('stop-color', iconColor2);
+    }
+
 }
 
 function switchTheme(e) {
@@ -55,7 +77,7 @@ function switchTheme(e) {
     }   
 
     setHeaderImage();
-    updateBlobColors();
+    updateGradientColors();
 }
 
 // General method calls
@@ -64,5 +86,5 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 // Methods to run on window load
 window.onload = function() {
     setHeaderImage();
-    updateBlobColors();
+    updateGradientColors();
 }
