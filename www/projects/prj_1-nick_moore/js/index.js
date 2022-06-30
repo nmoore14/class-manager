@@ -49,8 +49,11 @@ function updateGradientColors() {
     if (theme === 'dark') {
         blobColor1 = '#34D399';
         blobColor2 = '#6D28D9';
-        iconColor1 = '#374151';
-        iconColor2 = '#000000';
+
+        if (document.documentElement.clientWidth > 1112) {
+            iconColor1 = '#374151';
+            iconColor2 = '#000000';
+        }
     }
 
     blobGradientColor1.setAttribute('stop-color', blobColor1);

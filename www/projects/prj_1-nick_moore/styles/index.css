@@ -27,6 +27,7 @@
     --violet-800: #5b21b6;
     --linear-primary: linear-gradient(to right, var(--violet-600) 0%, var(--violet-800) 100%);
     --linear-glass: linear-gradient(to bottom right, rgba(75, 85, 99, .25), rgba(229, 231, 235, .25));
+    --linear-glass-mobile: linear-gradient(to bottom right, rgba(75, 85, 99, .55), rgba(229, 231, 235, .75));
     --header-font: 'Ubuntu', sans-serif;
     --body-font: 'Ubuntu Mono', sans-serif;
     --body-color: var(--gray-700);
@@ -328,11 +329,124 @@ main {
     padding-bottom: 1rem;
 }
 
-.info-card-links > a {
-    text-decoration: none;
+.info-card-links > a { text-decoration: none;
 }
 
 .info-card-links > a > svg {
     width: 4rem;
     height: 4rem;
 }
+
+/*****************************************
+****        MOBILE 1024px MAX         ****
+****         iPad Pro Screen          ****
+*****************************************/
+@media only screen and (max-width: 1024px) {
+    .header-main {
+        position: fixed;
+        width: 100%;
+        z-index: 10000;
+    }
+
+    main {
+        position: relative;
+        top: -2rem;
+    }
+
+    .main-content {
+        position: relative;
+        flex-flow: column wrap;
+    }
+
+    .main-blob > svg {
+        width: 45rem;
+        height: auto;
+    }
+
+    .main-content-headline {
+        margin-right: 0;
+    }
+
+    .main-content-title {
+        font-size: 5rem;
+        text-align: center;
+    }
+
+    .main-content-subtitle {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .main-content-info-card {
+        width: 60%;
+        margin-left: 0;
+        background: var(--linear-glass-mobile);
+    }
+
+    .info-card-img {
+        position: relative;
+        width: 13rem;
+        height: 13rem;
+        top: 1rem;
+        filter: none;
+    }
+
+    .info-card-img > img {
+        width: 13rem;
+        height: 13rem;
+    }
+
+    .info-card-content {
+        position: relative;
+    }
+
+    .info-card-content > p {
+        color: var(--fg-primary);
+    }
+
+    .info-card-links {
+        position: relative;
+        padding-bottom: 0;
+    }
+}
+
+/*****************************************
+****        MOBILE 414px MAX          ****
+****       iPhone Max Screen          ****
+*****************************************/
+@media only screen and (max-width: 414px) {
+    .header-title {
+        width: 100%;
+    }
+
+    .header-title > h1 {
+        text-align: center;
+    }
+
+    main {
+        top: 2rem;
+    }
+
+    .main-blob {
+        padding-top: 3rem;
+    }
+
+    .main-blob > svg {
+        width: 25rem;
+        height: auto;
+    }
+
+
+    .main-content-title {
+        font-size: 3.5rem;
+    }
+
+    .main-content-subtitle {
+        font-size: 2rem;
+    }
+
+    .main-content-info-card {
+        width: 80%;
+    }
+}
+
