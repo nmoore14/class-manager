@@ -79,6 +79,10 @@ h3 {
     color: var(--fg-primary);
 }
 
+.header-title-link {
+    text-decoration: none;
+}
+
 .header-lowercase {
     text-transform: lowercase;
 }
@@ -343,6 +347,24 @@ main {
 }
 
 /*****************************************
+****          PROJECTS PAGE           ****
+*****************************************/
+.projects-main {
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content:flex-start;
+    align-items:center;
+    margin-top: 5rem;
+}
+
+.coming-soon-text {
+    margin-top: 3rem;
+    font-weight: 300;
+    color: var(--gray-600);
+}
+
+/*****************************************
 ****        MOBILE 1024px MAX         ****
 ****         iPad Pro Screen          ****
 *****************************************/
@@ -454,4 +476,3 @@ main {
         width: 80%;
     }
 }
-
