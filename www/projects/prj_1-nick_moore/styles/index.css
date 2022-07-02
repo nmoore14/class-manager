@@ -337,17 +337,19 @@ main {
 }
 
 .info-card-links {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
     width: 90%;
-    bottom: 0;
+    bottom: -webkit-calc(-40% + 1rem);
+    bottom:calc(-40% + 1rem);
     padding-bottom: 1rem;
 }
 
-.info-card-links > a { text-decoration: none;
+.info-card-links > a { 
+    text-decoration: none;
 }
 
 .info-card-links > a > svg {
@@ -482,6 +484,7 @@ main {
 
     .info-card-links {
         position: relative;
+        bottom: 0;
         padding-bottom: 0;
     }
 }
