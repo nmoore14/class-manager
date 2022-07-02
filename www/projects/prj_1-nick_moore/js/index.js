@@ -17,7 +17,6 @@ const blobGradientColor2 = document.getElementById('gradient-color-2');
 const iconBackgroundGradientColor1 = document.getElementsByClassName('icon-gradient-color-1');
 const iconBackgroundGradientColor2 = document.getElementsByClassName('icon-gradient-color-2');
 
-
 if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
 
@@ -86,7 +85,7 @@ function switchTheme(e) {
 // General method calls
 toggleSwitch.addEventListener('change', switchTheme, false);
 
-// Methods to run on window load
+// // Methods to run on window load
 window.onload = function() {
     setHeaderImage();
     updateGradientColors();

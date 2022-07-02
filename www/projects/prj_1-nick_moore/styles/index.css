@@ -7,8 +7,10 @@
 
 
 :root {
-    --bg-primary: #F8FAFC;
-    --fg-primary: #000000;
+    --amber-200: #FDE68A;
+    --amber-300: #FCD34D;
+    --amber-400: #FBBF24;
+    --amber-500: #F59E0B;
     --emerald-50: #ecfdf5;
     --emerald-100: #d1fae5;
     --emerald-200: #a7f3d0;
@@ -16,7 +18,6 @@
     --emerald-400: #34d399;
     --gray-100: #f2f4f6;
     --gray-200: #e5e7eb;
-    --gray-sunglasses: var(--gray-200);
     --gray-600: #4b5563;
     --gray-700: #374151;
     --violet-200: #ddd5fe;
@@ -25,12 +26,17 @@
     --violet-600: #7c3aed;
     --violet-700: #6d28d9;
     --violet-800: #5b21b6;
+    --bg-primary: #F8FAFC;
+    --fg-primary: #000000;
+    --gray-sunglasses: var(--gray-200);
     --linear-primary: linear-gradient(to right, var(--violet-600) 0%, var(--violet-800) 100%);
     --linear-glass: linear-gradient(to bottom right, rgba(75, 85, 99, .25), rgba(229, 231, 235, .25));
     --linear-glass-mobile: linear-gradient(to bottom right, rgba(75, 85, 99, .55), rgba(229, 231, 235, .75));
     --header-font: 'Ubuntu', sans-serif;
     --body-font: 'Ubuntu Mono', sans-serif;
     --body-color: var(--gray-700);
+    --body-accent: var(--amber-500);
+    --body-light-accent: var(--violet-300);
     --link-color: var(--violet-600);
 }
 
@@ -40,6 +46,9 @@
     --gray-sunglasses: #000000;
     --linear-primary: linear-gradient(to right, var(--emerald-300) 0%, var(--emerald-400) 100%);
     --body-color: var(--gray-200);
+    --body-accent: var(--violet-800);
+    --body-accent: var(--amber-300);
+    --body-light-accent: var(--violet-400);
     --link-color: var(--emerald-400);
 }
 
@@ -355,13 +364,53 @@ main {
     flex-flow: column wrap;
     justify-content:flex-start;
     align-items:center;
-    margin-top: 5rem;
+    margin-top: 7rem;
 }
 
 .coming-soon-text {
     margin-top: 3rem;
     font-weight: 300;
     color: var(--gray-600);
+}
+
+/*****************************************
+*****          CAUSE PAGE           ******
+*****************************************/
+.cause-main {
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content:flex-start;
+    align-items:center;
+    margin-top: 7rem;
+}
+
+.cause-title {
+    text-align: center;
+    font-weight: 700;
+}
+
+.cause-subtitle {
+    font-family: var(--body-font);
+    font-size: 1.75rem;
+    color: var(--body-light-accent);
+    text-align: center;
+}
+
+.cause-catch-line {
+    font-family: var(--body-font);
+    font-size: 2rem;
+    color: var(--body-accent);
+    text-align: center;
+    font-style: italic;
+}
+
+.cause-content-body {
+    margin-top: 8rem;
+    font-family: var(--body-font);
+    color: var(--fg-primary);
+    font-size: 1.75rem;
+    text-align: center;
 }
 
 /*****************************************
@@ -446,7 +495,7 @@ main {
         width: 100%;
     }
 
-    .header-title > h1 {
+    .header-title > h1, .header-title > a {
         text-align: center;
     }
 
