@@ -1,10 +1,16 @@
+var App = {
+    data: {},
+};
+
 $( document ).ready(() => {
     let chapterContent;
+    let projectContent;
 
     // Grab the chapters content object
     $.ajax({
         url: "/api/index.php/chapters/list",
     }).done((data) => {
+        App.data['chapterData'] = data;
         chapterContent = data;
         buildChapterContent(chapterContent);
     });
@@ -13,6 +19,7 @@ $( document ).ready(() => {
     $.ajax({
         url: "/api/index.php/projects/list",
     }).done((data) => {
+        App.data['projectData'] = [...data];
         projectContent = data;
         buildProjectContent(projectContent);
     });
@@ -77,5 +84,4 @@ $( document ).ready(() => {
     setInterval(() => {
         $(".date").html(setDate());
     }, 60000)
-
 })
