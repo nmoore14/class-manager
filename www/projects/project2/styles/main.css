@@ -1,0 +1,26 @@
+/*
+ * Global variables
+ */
+:root {
+    --gray-100: #F1F1F1;
+    --gray-200: #EEEEEE;
+    --gray-300: #EBEBEB;
+    --slate-400: #323D48;
+    --slate-500: #1C2834;
+    --slate-600: #162029;
+    --main-bg: var(--gray-200);
+}
+
+[data-theme='dark'] {
+    --main-bg: var(--slate-500);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--main-bg);
+}
