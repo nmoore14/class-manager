@@ -27,10 +27,17 @@
         </header>
         <main>
             <div class="main-header">
-                <p>
-                    Enter a temperature on the thermometer to get the temp in...
+                <div class="temp-type-btns">
+                    <button class="fah-btn" value="farhenhiet">
+                        <span class="iconify" data-icon="mdi:temperature-fahrenheit"></span>
+                    </button>
+                    <button class="cel-btn active-btn" value="celsius">
+                        <span class="iconify" data-icon="mdi:temperature-celsius"></span>
+                    </button>
+                </div>
+                <p class="main-tagline">
+                    Enter a temperature on the thermometer to get the temp in...<span class="temp-type-display" id="temp-type-display"></span>
                 </p>
-                <p class="oppo-temp  js-oppo-temp"></p>
             </div>
             <div class="main-content">
                 <div class="nest"></div>

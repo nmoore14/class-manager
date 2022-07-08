@@ -21,9 +21,6 @@ function switchTheme(e) {
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
     }   
-
-    setHeaderImage();
-    updateGradientColors();
 }
 
 // General method calls
@@ -31,10 +28,21 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
 /*
 * Main conversion logic
+* to celsius: (C x 9/5) + 32
+* to farhrenheit: (F -32) x 5/9
 */
-let tempType = "Celcius";
-const tempTitle = document.getElementsByClassName('js-oppo-temp');
+let tempType = 'Celcius';
+const tempDisplay = document.getElementById('temp-type-display');
 
-console.log(tempTitle);
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+        tempType = button.value;
+        updateTempDisplay(tempType);
+    });
+});
 
-tempTitle.textContent(tempType);
+function updateTempDisplay(tempType) {
+    tempDisplay.textContent = tempType;
+}
+
+updateTempDisplay(tempType);

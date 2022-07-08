@@ -162,7 +162,35 @@ main {
     padding: 6rem 1rem 2rem 1rem;
 }
 
-.main-header > p {
+.main-tagline {
     font-size: 1.5rem;
     color: var(--font-color);
+    text-align: center;
+}
+
+.temp-type-display {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    background: var(--linear-primary);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    transition: ease-in-out .5s;
+}
+
+.temp-type-btns {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.fah-btn, .cel-btn {
+    font-size: 2rem;
+}
+
+.active-btn {
+    background: var(--linear-primary);
 }
