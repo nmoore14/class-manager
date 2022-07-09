@@ -45,4 +45,13 @@ function updateTempDisplay(tempType) {
     tempDisplay.textContent = tempType;
 }
 
+function calcTemp(tempType, temp) {
+    if (tempType === 'celsius') {
+        return (temp * 9/5) + 32;
+    }
+    if (tempType === 'farhrenheit') {
+        return (temp - 32) * 5/9;
+    }
+}
+
 updateTempDisplay(tempType);
