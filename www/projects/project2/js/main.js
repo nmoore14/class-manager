@@ -31,20 +31,6 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 * to celsius: (C x 9/5) + 32
 * to farhrenheit: (F -32) x 5/9
 */
-let tempType = 'Celcius';
-const tempDisplay = document.getElementById('temp-type-display');
-
-document.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => {
-        tempType = button.value;
-        updateTempDisplay(tempType);
-    });
-});
-
-function updateTempDisplay(tempType) {
-    tempDisplay.textContent = tempType;
-}
-
 function calcTemp(tempType, temp) {
     if (tempType === 'celsius') {
         return (temp * 9/5) + 32;
@@ -53,5 +39,3 @@ function calcTemp(tempType, temp) {
         return (temp - 32) * 5/9;
     }
 }
-
-updateTempDisplay(tempType);

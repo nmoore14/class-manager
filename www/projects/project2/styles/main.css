@@ -168,29 +168,23 @@ main {
     text-align: center;
 }
 
-.temp-type-display {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    background: var(--linear-primary);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-    transition: ease-in-out .5s;
+.main-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.temp-type-btns {
+.conversion {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
 }
 
-.fah-btn, .cel-btn {
-    font-size: 2rem;
-}
-
-.active-btn {
-    background: var(--linear-primary);
+.fahrenheit, .celsius {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }

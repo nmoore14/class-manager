@@ -27,20 +27,25 @@
         </header>
         <main>
             <div class="main-header">
-                <div class="temp-type-btns">
-                    <button class="fah-btn" value="farhenhiet">
-                        <span class="iconify" data-icon="mdi:temperature-fahrenheit"></span>
-                    </button>
-                    <button class="cel-btn active-btn" value="celsius">
-                        <span class="iconify" data-icon="mdi:temperature-celsius"></span>
-                    </button>
-                </div>
                 <p class="main-tagline">
-                    Enter a temperature on the thermometer to get the temp in...<span class="temp-type-display" id="temp-type-display"></span>
+                    Use the boxes below to get your temperature conversion.
                 </p>
             </div>
             <div class="main-content">
-                <div class="nest"></div>
+                <div class="conversion">
+                    <div class="fahrenheit">
+                        <input type="number" name="fahrenheit" value="0">
+                        <label for="farhrenheit">
+                            <span class="iconify" data-icon="mdi:temperature-fahrenheit"></span>
+                        </label>
+                    </div>
+                    <div class="celsius">
+                        <input type="number" name="celsius" value="0">
+                        <label for="celsius">
+                            <span class="iconify" data-icon="mdi:temperature-celsius"></span>
+                        </label>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>
