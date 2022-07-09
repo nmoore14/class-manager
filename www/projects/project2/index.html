@@ -32,10 +32,34 @@
                 </p>
             </div>
             <div class="main-content">
-                <div class="conversion">
+                <div class="form-conversion">
+                    <form class="conversion">
+                        <div class="form-controls">
+                            <fieldset class="form-control form-temp-input">
+                                <input type="number" name="form-temp" value="0" class="temp-input" id="form-temp"> 
+                            </fieldset>
+                            <fieldset class="form-control form-temp-type">
+                                <label for="fahrenheit">
+                                    <input type="radio" name="form-type" value="fahrenheit" class="form-radio" checked>
+                                    <span class="iconify" data-icon="mdi:temperature-fahrenheit"></span>
+                                </label>
+                                <label for="celsius">
+                                    <input type="radio" name="form-type" value="celsius" class="form-radio">
+                                    <span class="iconify" data-icon="mdi:temperature-celsius"></span>
+                                </label>
+                            </fieldset>
+                            <input type="submit" name="submit-temp" value="Convert" class="btn submitTemp" onclick="calcTemp(event)">
+                        </div>
+                    </form>
+                    <div class="conversion-display">
+                        <h2 class="conversion" id="conversion"></h2>
+                        <h3 class="conversion-subtitle" id="conversion-subtitle"></h3>
+                    </div>
+                </div>
+                <div class="auto-conversion">
                     <div class="fahrenheit">
-                        <input type="number" name="fahrenheit" value="0" class="temp-input" id="fahrenheit-temp">
-                        <label for="farhrenheit">
+                        <input type="number" name="fahrenheit" value="0" class="temp-input auto-input" id="fahrenheit-temp">
+                        <label for="fahrenheit">
                             <span class="iconify" data-icon="mdi:temperature-fahrenheit"></span>
                         </label>
                     </div>
@@ -43,7 +67,7 @@
                         <span class="iconify" data-icon="akar-icons:arrow-right-left"></span>
                     </div>
                     <div class="celsius">
-                        <input type="number" name="celsius" value="0" class="temp-input" id="celsius-temp">
+                        <input type="number" name="celsius" value="0" class="temp-input auto-input" id="celsius-temp">
                         <label for="celsius">
                             <span class="iconify" data-icon="mdi:temperature-celsius"></span>
                         </label>

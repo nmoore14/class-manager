@@ -27,6 +27,7 @@
     --sunglasses-main: var(--slate-400);
     --main-font: 'Titillium Web', sans-serif;
     --font-color: var(--slate-600);
+    --font-color-secondary: var(--gray-300);
 }
 
 [data-theme='dark'] {
@@ -35,6 +36,7 @@
     --linear-primary: linear-gradient(to right, var(--emerald-200) 0%, var(--emerald-300) 100%);
     --sunglasses-main: #5d6a6f;
     --font-color: var(--gray-300);
+    --font-color-secondary: var(--slate-600);
 }
 
 * {
@@ -178,10 +180,61 @@ main {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .conversion {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.conversion > fieldset,
+.form-controls > fieldset {
+    border: none;
+}
+
+.form-controls {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-temp-input {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.form-temp-input > input {
+    width: 100%;
+}
+
+.form-temp-type {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    justify-self: flex-start;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    color: var(--accent-1);
+}
+
+.submitTemp {
+    background: var(--linear-primary);
+    font-family: var(--main-font);
+    font-size: 1.5rem;
+    color: var(--font-color-secondary);
+    border: none;
+    padding: .5rem;
+    margin: 1rem;
+}
+
+.auto-conversion {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
