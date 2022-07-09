@@ -22,6 +22,7 @@
     --violet-700: #6d28d9;
     --violet-800: #5b21b6;
     --main-bg: var(--gray-200);
+    --accent-1: var(--violet-700);
     --linear-primary: linear-gradient(to right, var(--violet-300) 0%, var(--violet-400) 100%);
     --sunglasses-main: var(--slate-400);
     --main-font: 'Titillium Web', sans-serif;
@@ -30,6 +31,7 @@
 
 [data-theme='dark'] {
     --main-bg: var(--slate-500);
+    --accent-1: var(--emerald-400);
     --linear-primary: linear-gradient(to right, var(--emerald-200) 0%, var(--emerald-300) 100%);
     --sunglasses-main: #5d6a6f;
     --font-color: var(--gray-300);
@@ -44,6 +46,17 @@
 html {
     background: var(--main-bg);
     font-size: 12pt;
+}
+
+/**********************************************
+~~~~~~             UTILS                 ~~~~~~
+**********************************************/
+.gradient-text {
+    background: var(--linear-primary);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    transition: ease-in-out .5s;
 }
 
 .header-main {
@@ -68,13 +81,6 @@ html {
     text-transform: lowercase;
 }
 
-.header-gradient-text {
-    background: var(--linear-primary);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-    transition: ease-in-out .5s;
-}
 
 .header-actions {
     display: flex;
@@ -186,5 +192,35 @@ main {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items: center;
+    padding: .5rem;
+}
+
+.fahrenheit {
+    align-items: flex-end;
+}
+
+.celsius {
+    align-items: flex-start;
+}
+
+.fahrenheit > label,
+.celsius > label {
+    width: 60%;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--accent-1);
+}
+
+.conversion-symbol {
+    font-size: 3rem;
+    margin-top: -2rem;
+    color: var(--accent-1);
+}
+
+.temp-input {
+    text-align: center;
+    font-family: var(--main-font);
+    font-size: 3rem;
+    padding: 0;
+    width: 60%;
 }

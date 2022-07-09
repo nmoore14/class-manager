@@ -29,13 +29,23 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 /*
 * Main conversion logic
 * to celsius: (C x 9/5) + 32
-* to farhrenheit: (F -32) x 5/9
+* to fahrenheit: (F -32) x 5/9
 */
-function calcTemp(tempType, temp) {
-    if (tempType === 'celsius') {
-        return (temp * 9/5) + 32;
+function calcTemp(ogTempType, temp) {
+    if (ogTempType === 'celsius') {
+        // Set fahrenheit value
+        let newTemp = (temp - 32) * 5/9;
+        document.getElementById('fahrenheit-temp').value = Math.round(newTemp * 100) / 100;
     }
-    if (tempType === 'farhrenheit') {
-        return (temp - 32) * 5/9;
+    if (ogTempType === 'fahrenheit') {
+        // Set celsius value
+        let newTemp = (temp * 9/5) + 32;
+        document.getElementById('celsius-temp').value = Math.round(newTemp * 100) / 100; 
     }
 }
+
+document.querySelectorAll('.temp-input').forEach(tempInput => {
+    tempInput.addEventListener('change', (e) => {
+        calcTemp(e.target.name, e.target.value);
+    })
+})

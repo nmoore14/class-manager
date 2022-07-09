@@ -13,7 +13,7 @@
     <body>
         <header class="header-main">
             <div class="header-title">
-                <h1 class="header-lowercase header-gradient-text">Temp Conversion</h1>
+                <h1 class="header-lowercase gradient-text">Temp Conversion</h1>
             </div>
             <div class="header-actions">
                 <div class="header-theme-toggle">
@@ -34,13 +34,16 @@
             <div class="main-content">
                 <div class="conversion">
                     <div class="fahrenheit">
-                        <input type="number" name="fahrenheit" value="0">
+                        <input type="number" name="fahrenheit" value="0" class="temp-input" id="fahrenheit-temp">
                         <label for="farhrenheit">
                             <span class="iconify" data-icon="mdi:temperature-fahrenheit"></span>
                         </label>
                     </div>
+                    <div class="conversion-symbol">
+                        <span class="iconify" data-icon="akar-icons:arrow-right-left"></span>
+                    </div>
                     <div class="celsius">
-                        <input type="number" name="celsius" value="0">
+                        <input type="number" name="celsius" value="0" class="temp-input" id="celsius-temp">
                         <label for="celsius">
                             <span class="iconify" data-icon="mdi:temperature-celsius"></span>
                         </label>
