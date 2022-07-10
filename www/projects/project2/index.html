@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <!-- Load CSS -->
         <link rel="stylesheet" href="styles/main.css">
@@ -45,11 +46,11 @@
                             </fieldset>
                             <fieldset class="form-control form-temp-type">
                                 <label for="fahrenheit">
-                                    <input type="radio" name="form-type" value="fahrenheit" class="form-radio" checked>
+                                    <input type="radio" name="form-type" value="fahrenheit" class="form-radio" id="fahrenheit" checked>
                                     <span class="iconify" data-icon="mdi:temperature-fahrenheit"></span>
                                 </label>
                                 <label for="celsius">
-                                    <input type="radio" name="form-type" value="celsius" class="form-radio">
+                                    <input type="radio" name="form-type" value="celsius" class="form-radio" id="celsius">
                                     <span class="iconify" data-icon="mdi:temperature-celsius"></span>
                                 </label>
                             </fieldset>
@@ -81,7 +82,7 @@
                     <div class="inner-auto-conversion">
                         <div class="fahrenheit">
                             <input type="number" name="fahrenheit" value="0" class="temp-input auto-input" id="fahrenheit-temp">
-                            <label for="fahrenheit">
+                            <label for="fahrenheit-temp">
                                 <span class="iconify" data-icon="mdi:temperature-fahrenheit"></span>
                             </label>
                         </div>
@@ -90,7 +91,7 @@
                         </div>
                         <div class="celsius">
                             <input type="number" name="celsius" value="0" class="temp-input auto-input" id="celsius-temp">
-                            <label for="celsius">
+                            <label for="celsius-temp">
                                 <span class="iconify" data-icon="mdi:temperature-celsius"></span>
                             </label>
                         </div>
