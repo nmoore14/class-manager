@@ -1,7 +1,10 @@
 <?php
 $kmSpeed = $_GET['km-speed'];
+$mphSpeed = 0;
 
-$mphSpeed = round($kmSpeed * 0.62137119223733, 2);
+if (is_numeric($kmSpeed)) {
+    $mphSpeed = round($kmSpeed * 0.62137119223733, 2);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,19 +35,25 @@ $mphSpeed = round($kmSpeed * 0.62137119223733, 2);
             </div>
         </header>
         <main>
+            <div class="form-description">
+                <h2>Enter the k/mh speed you'd like to see the mph for.</h2>
+            </div>
             <form action="" method="GET" class="conversion">
                 <fieldset>
                     <div class="form-controls">
-                        <input type="number" name="km-speed" placeholder="Enter the KMH" class="kmh-input">
+                        <input type="number"name="km-speed" placeholder="Enter the KMH" class="kmh-input">
                         <input type="submit" value="Submit" class="btn submitKmh">
                     </div>
                 </fieldset>
             </form>
-            <?php
-                if ($mphSpeed) {
-                    echo $mphSpeed;
-                }
-            ?>
+            <div class="mph-display">
+                <?php if ($mphSpeed) { ?>
+                    <h1 class="mph-speed">
+                        <?php echo $mphSpeed ?>
+                    </h1>
+                <?php } ?>
+                <h2 class="mph-subtitle">MPH</h2>
+            </div>
         </main>
         <footer>
         </footer>

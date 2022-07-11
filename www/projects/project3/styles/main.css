@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /*
  * Global variables
@@ -29,6 +30,7 @@
     --linear-button: linear-gradient(to bottom right, var(--violet-400) 0%, var(--violet-700) 100%);
     --sunglasses-main: var(--slate-400);
     --main-font: 'Titillium Web', sans-serif;
+    --accent-font: 'Press Start 2P', cursive;
     --font-color: var(--slate-600);
     --font-color-secondary: var(--gray-300);
 }
@@ -182,6 +184,14 @@ main {
     padding: 6rem 1rem 2rem 1rem;
 }
 
+.form-description {
+    margin-bottom: 1rem;
+}
+
+.form-description > h2 {
+    color: var(--font-color);
+}
+
 .conversion {
     display: flex;
     flex-flow: column nowrap;
@@ -226,6 +236,30 @@ main {
     transform: scale(1.05);
     filter: drop-shadow(0px 5px 8px rgba(0, 0, 0, .5));
     transition: ease-in-out .5s;
+}
+
+.mph-display {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    width: 20rem;
+    height: 12rem;
+    background: var(--linear-primary);
+    border-radius: 50rem 50rem 0 0;
+    padding-bottom: 1rem;
+}
+
+.mph-speed {
+    font-family: var(--main-font);
+    font-size: 4rem;
+    color: var(--slate-400);
+}
+
+.mph-subtitle {
+    text-transform: lowercase;
+    font-family: var(--accent-font);
+    color: var(--accent-1);
 }
 
 /*****************************************
