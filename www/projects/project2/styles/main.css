@@ -276,6 +276,7 @@ main {
 }
 
 .auto-conversion-title {
+    color: var(--font-color);
     text-align: center;
     padding-left: 1rem;
 }
