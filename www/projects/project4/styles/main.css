@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&display=swap');
 
 /*
  * Global variables
@@ -29,6 +30,7 @@
     --linear-button: linear-gradient(to bottom right, var(--violet-400) 0%, var(--violet-700) 100%);
     --sunglasses-main: var(--slate-400);
     --main-font: 'Titillium Web', sans-serif;
+    --code-font: 'IBM Plex Mono', monospace;
     --font-color: var(--slate-600);
     --font-color-secondary: var(--gray-300);
 }
@@ -73,6 +75,13 @@ html {
     transition: ease-in-out .5s;
 }
 
+h1 {
+    color: var(--font-color);
+}
+
+/**********************************************
+~~~~~~            HEADER                 ~~~~~~
+**********************************************/
 .header-main {
     position: fixed;
     display: flex;
@@ -182,64 +191,15 @@ main {
     padding: 6rem 1rem 2rem 1rem;
 }
 
-
-.temp-form-description {
-    list-style-type: none;
-    font-family: var(--main-font);
-    font-size: 1.25rem;
+.data-input {
+    width: 50rem;
+    font-family: var(--code-font);
+    font-size: 1rem;
     text-align: center;
-    color: var(--font-color);
+    padding: .5rem 1rem;
 }
 
-.main-content {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.conversion {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.conversion > fieldset,
-.form-controls > fieldset {
-    border: none;
-}
-
-.form-controls {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-temp-input {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.form-temp-input > input {
-    width: 100%;
-}
-
-.form-temp-type {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    justify-self: flex-start;
-    font-size: 1.5rem;
-    margin-left: 1rem;
-    color: var(--accent-1);
-}
-
-.submitTemp {
+.submitBtn {
     background: var(--linear-button);
     font-family: var(--main-font);
     font-size: 1.5rem;
@@ -251,143 +211,23 @@ main {
     border-radius: .5rem;
 }
 
-.submitTemp:hover {
+.submitBtn:hover {
     cursor: pointer;
     transform: scale(1.05);
     filter: drop-shadow(0px 5px 8px rgba(0, 0, 0, .5));
     transition: ease-in-out .5s;
 }
 
-.auto-conversion {
+.data-translate-display {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4rem;
-    padding-top: 2rem;
-    background-color: var(--main-bg);
-    -moz-box-shadow: inset -2px -2px 10px var(--main-hightlight),
-        inset 2px 2px 10px var(--main-shadow);
-    -webkit-box-shadow: inset -2px -2px 10px var(--main-hightlight)
-        inset 2px 2px 10px var(--main-shadow);
-    box-shadow: inset -2px -2px 10px var(--main-hightlight),
-        inset 2px 2px 10px var(--main-shadow);
-    border-radius: 1rem;;
-}
-
-.auto-conversion-title {
-    color: var(--font-color);
-    text-align: center;
-    padding-left: 1rem;
-}
-
-.inner-auto-conversion {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
-.fahrenheit, .celsius {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    padding: .5rem;
-}
-
-.fahrenheit {
-    align-items: flex-end;
-}
-
-.celsius {
-    align-items: flex-start;
-}
-
-.fahrenheit > label,
-.celsius > label {
-    width: 60%;
-    text-align: center;
-    font-size: 2rem;
-    color: var(--accent-1);
-}
-
-.conversion-symbol {
-    font-size: 3rem;
-    margin-top: -2rem;
-    color: var(--accent-1);
-}
-
-.temp-input {
-    text-align: center;
-    font-family: var(--main-font);
-    font-size: 3rem;
-    padding: 0;
-    width: 60%;
-}
-
-.conversion-display {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    padding: 1rem;
-}
-
-.nest {
-	width: 25rem;
-	height: 25rem;
-	display: flex;
-	align-items: center;
-	align-content: center;
-	justify-content: center;
-	background: var(--main-bg);
-	filter: drop-shadow(-5px -2px 8px var(--main-hightlight)) drop-shadow(5px 2px 10px var(--main-shadow));
-	border-radius: 100%;
-}
-
-#nest-circle {
-	display: flex;
-    flex-flow: column nowrap;
-	justify-content: center;
-	align-items: center;
-	width: 23.5rem;
-	height: 23.5rem;
-	border-radius: 100%;
-	background: linear-gradient(to bottom right, #111111, #010101);
-}
-
-#nest-circle svg {
-    position: absolute;
-	fill: transparent;
-	stroke-width: 20;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-}
-
-.conversion-title {
-    font-family: var(--main-font);
-    font-size: 5rem;
-    font-weight: 300;
-    color: var(--gray-200);
-    margin-top: -3.5rem;
-}
-
-.conversion-subtitle {
-    font-family: var(--main-font);
+.data-output {
+    font-family: var(--code-font);
     font-size: 1.5rem;
-    color: var(--gray-200);
-    margin-top: -2rem;
+    font-weight: 300;
+    color: var(--font-color);
 }
-/*****************************************
-****        MOBILE 428px MAX          ****
-****       iPhone Max Screen          ****
-*****************************************/
-@media only screen and (max-width: 428px) {
-    .form-controls {
-        flex-flow: row wrap;
-        padding: .5rem 1rem;
-    }
-}
-
