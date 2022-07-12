@@ -1,7 +1,7 @@
 const data = document.getElementById('data-input');
 const dataOutput = document.getElementById('data-output');
 
-function translateData() {
+function convertData() {
     let newData = [];
     let ogData = data.value;
     splitData = ogData.split(';');
