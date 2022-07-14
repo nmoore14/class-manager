@@ -61,10 +61,8 @@ html {
 /**********************************************
 ~~~~~~             UTILS                 ~~~~~~
 **********************************************/
-.tagline {
-    font-size: 1.5rem;
+h1, h2, h3, h4 {
     color: var(--font-color);
-    text-align: center;
 }
 
 .gradient-text {
@@ -75,8 +73,10 @@ html {
     transition: ease-in-out .5s;
 }
 
-h1 {
+.tagline {
+    font-size: 1.5rem;
     color: var(--font-color);
+    text-align: center;
 }
 
 /**********************************************
@@ -191,6 +191,24 @@ main {
     padding: 6rem 1rem 2rem 1rem;
 }
 
+.description {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.description-title {
+    text-align: center;
+}
+
+.description-body {
+    font-size: 1.5rem;
+    color: var(--font-color);
+    text-align: center;
+}
+
 .data-input {
     width: 50rem;
     font-family: var(--code-font);
@@ -230,4 +248,36 @@ main {
     font-size: 1.5rem;
     font-weight: 300;
     color: var(--font-color);
+}
+
+footer {
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: .5rem 1rem;
+    background-color: var(--accent-1);
+}
+
+.footer-title {
+    font-family: var(--main-font);
+    font-size: 1.25rem;
+    color: var(--font-color-secondary);
+}
+
+.footer-links {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-link {
+    font-size: 1.75rem;
+    color: var(--font-color-secondary);
+    margin: 0 .5rem -.5rem .5rem;
 }
