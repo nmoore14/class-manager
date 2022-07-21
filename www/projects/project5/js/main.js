@@ -7,6 +7,7 @@ $( document ).ready(() => {
     const interestRateInput = $('#interest-rate-input');
     const monthlyPaymentInput = $('#monthly-payment-input');
     let payments;
+    let paymentList = [];
 
     function validateInput(pressedKey) {
         if (pressedKey >= 48 && pressedKey <= 57) {
@@ -27,7 +28,6 @@ $( document ).ready(() => {
     }
 
     function buildPaymentList(startingBalance, interestRate, paymentAmount) {
-        let paymentList = [];
         let totalAmount = startingBalance;
         let totalInterest = 0;
         let currentMonth = 1;
@@ -79,6 +79,18 @@ $( document ).ready(() => {
         return paymentList;
     }
 
+    function clearPaymentData() {
+        const paymentTableBody = $('.payments-body');
+        const paymentTableFooter = $('.payments-footer');
+
+        payments = [];
+        paymentList = [];
+
+        paymentTableBody.empty();
+        paymentTableFooter.empty();
+
+    }
+
     function buildPaymentTable(payments) {
         const paymentTableBody = $('.payments-body');
         const paymentTableFooter = $('.payments-footer');
@@ -126,6 +138,8 @@ $( document ).ready(() => {
     $('.debt-form').submit((e) => {
         e.preventDefault();
 
+        clearPaymentData();
+
         let startingBalance = parseInt(startingBalanceInput.val());
         let interestRate = parseInt(interestRateInput.val());
         let monthlyPayment = parseInt(monthlyPaymentInput.val());
@@ -136,5 +150,13 @@ $( document ).ready(() => {
         startingBalanceInput.val('');
         interestRateInput.val('');
         monthlyPaymentInput.val('');
+    })
+
+    $('.scroll-to-top').click((e) => {
+        if ($(window).scrollTop() > 150) {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1000);
+        }
     })
 });

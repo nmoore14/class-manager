@@ -29,6 +29,7 @@
     --main-shadow: var(--gray-300);
     --table-zebra: var(--gray-300);
     --accent-1: var(--violet-700);
+    --accent-2: var(--emerald-300);
     --error-1: var(--red-400);
     --linear-primary: linear-gradient(to right, var(--violet-300) 0%, var(--violet-400) 100%);
     --linear-button: linear-gradient(to bottom right, var(--violet-400) 0%, var(--violet-700) 100%);
@@ -45,6 +46,7 @@
     --main-shadow: var(--slate-600);
     --table-zebra: var(--slate-600);
     --accent-1: var(--emerald-400);
+    --accent-2: var(--violet-300);
     --error-1: var(--red-100);
     --linear-primary: linear-gradient(to right, var(--emerald-200) 0%, var(--emerald-300) 100%);
     --linear-button: linear-gradient(to bottom right, var(--emerald-200) 0%, var(--emerald-300) 100%);
@@ -317,7 +319,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
-    padding: .5rem 1rem;
+    padding: .5rem 1rem 5rem 1rem;
 }
 
 .payments {
@@ -356,10 +358,35 @@ main {
     padding-top: .5rem;
     font-weight: 700;
     text-align: right;
+    color: var(--font-color);
 }
 
 .footer-stat {
     text-align: right;
+    color: var(--font-color);
+}
+
+/**********************************************
+~~~~~~          SCROLL TO TOP            ~~~~~~
+**********************************************/
+.scroll-to-top {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    bottom: 4rem;
+    right: 3rem;
+    background-color: var(--accent-1);
+    color: var(--font-color-secondary);
+    font-size: 2rem;
+    padding: .5rem;
+    border-radius: 10rem;
+    opacity: .5;
+}
+
+.scroll-to-top:hover {
+    cursor: pointer;
 }
 
 /**********************************************
@@ -367,7 +394,7 @@ main {
 **********************************************/
 
 footer {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
