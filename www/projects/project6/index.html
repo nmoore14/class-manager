@@ -27,7 +27,47 @@
             </div>
         </header>
         <main>
+            <div class="description">
+                <h2>Let's Make a Deal</h2>
+                <p>
+                    Select a door...then decide if you want to keep what is behind the door.
+                </p>
+            </div>
+            <div class="game">
+                <h1>Select A Door</h1>
+                <div class="game-doors">
+                    <div class="door  js-door-1" data-value="1">
+                        <h2 class="door-title">Door 1</h2>
+                        <span class="iconify" data-icon="bi:door-closed-fill" data-width="240" data-height="240"></span>
+                    </div>
+                    <div class="door  js-door-2" data-value="2">
+                        <h2 class="door-title">Door 2</h2>
+                        <span class="iconify" data-icon="bi:door-closed-fill" data-width="240" data-height="240"></span>
+                    </div>
+                    <div class="door  js-door-3" data-value="3">
+                        <h2 class="door-title">Door 3</h2>
+                        <span class="iconify" data-icon="bi:door-closed-fill" data-width="240" data-height="240"></span>
+                    </div>
+                </div>
+            </div>
         </main>
+        <div class="modal">
+            <div class="modal-box">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1>Do you want to Play A Game?</h1>
+                        <div class="close">
+                            <span class="iconify" data-icon="ant-design:close-circle-filled"></span>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <button>Keep Your Door</button>
+                        <button>Select Another Door</button>
+                        <button>Take 1500</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="scroll-to-top">
             <span class="iconify" data-icon="bi:arrow-bar-up"></span>
         </div>
