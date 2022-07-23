@@ -35,6 +35,7 @@
             </div>
             <div class="game">
                 <h1>Select A Door</h1>
+                <p class="guide-text">(Click on a door or press 1, 2, or 3)</p>
                 <div class="game-doors">
                     <div class="door  js-door-1" data-value="1">
                         <h2 class="door-title">Door 1</h2>
@@ -55,15 +56,22 @@
             <div class="modal-box">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1>Do you want to Play A Game?</h1>
+                        <h1>The Choice is yours...</h1>
                         <div class="close">
                             <span class="iconify" data-icon="ant-design:close-circle-filled"></span>
                         </div>
                     </div>
                     <div class="modal-body">
-                        <button>Keep Your Door</button>
-                        <button>Select Another Door</button>
-                        <button>Take 1500</button>
+                        <div class="modal-body-header">
+                            <h1>Do you...</h1>
+                        </div>
+                        <div class="modal-body-btns">
+                            <button class="btn keep-btn" data-value="keep">Keep Your Door</button>
+                            <button class="btn another-btn" data-value="another">Select Another Door</button>
+                            <button class="btn take-btn" id="take-btn" data-value="take"></button>
+                        </div>
+                    </div>
+                    <div class="modal-footer" id="modal-footer">
                     </div>
                 </div>
             </div>
