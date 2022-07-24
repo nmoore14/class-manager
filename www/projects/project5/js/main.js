@@ -38,10 +38,10 @@ $( document ).ready(() => {
 
             let currentMonthPayment = {
                 id: currentMonth,
-                startingBalance: startingBalance,
-                interestCharge: interestCharge,
-                payment: paymentAmount,
-                endingBalance: endingBalance,
+                startingBalance: parseFloat(startingBalance).toFixed(2),
+                interestCharge: parseFloat(interestCharge).toFixed(2),
+                payment: parseFloat(paymentAmount).toFixed(2),
+                endingBalance: parseFloat(endingBalance).toFixed(2),
                 isFinalStats: false,
             };
 
@@ -60,16 +60,16 @@ $( document ).ready(() => {
 
         const finalPayment = {
             id: currentMonth,
-            startingBalance: startingBalance,
-            interestCharge: finalPaymentInterest,
-            payment: finalPaymentAmount,
-            endingBalance: finalPaymentBalance,
+            startingBalance: parseFloat(startingBalance).toFixed(2),
+            interestCharge: parseFloat(finalPaymentInterest).toFixed(2),
+            payment: parseFloat(finalPaymentAmount).toFixed(2),
+            endingBalance: parseFloat(finalPaymentBalance).toFixed(2),
             isFinalStats: false,
         }
         
         const finalStats = {
-            totalInterest: totalInterest,
-            totalAmount: totalAmount,
+            totalInterest: parseFloat(totalInterest).toFixed(2),
+            totalAmount: parseFloat(totalAmount).toFixed(2),
             isFinalStats: true,
         }
 

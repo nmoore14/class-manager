@@ -204,6 +204,10 @@ main {
     padding: 6rem 1rem 2rem 1rem;
 }
 
+.main-header {
+    margin-bottom: 1.5rem;
+}
+
 .description {
     display: flex;
     flex-flow: column nowrap;
