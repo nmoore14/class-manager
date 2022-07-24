@@ -9,16 +9,30 @@ $( document ).ready(() => {
     // Game variables
     var doorPrize;
     var prevDoor;
+    var lastPick = false;
+    let doorPrizes = {
+        door1: 0,
+        door2: 0,
+        door3: 0
+    }
+
+    $.each(doorPrizes, (doorPrize) => {
+        doorPrizes[doorPrize] = getRandomPrizeAmount();
+    })
+
+    console.log(doorPrizes);
+
 
     function getRandomPrizeAmount() {
         return Math.floor(Math.random() * 100000);
     }
 
     function getDoorPrize(doorValue) {
-        const newDoorPrize = getRandomPrizeAmount();
-
         if (! doorPrize || prevDoor != doorValue) {
-            doorPrize = newDoorPrize;
+            if (doorPrize) {
+                lastPick = true;
+            }
+            doorPrize = doorPrizes[doorValue - 1];
             prevDoor = doorValue;
         }
     }
@@ -69,13 +83,19 @@ $( document ).ready(() => {
     $(window).keypress((e) => {
         switch(e.which) {
             case 49:
-                $('.js-door-1').click();
+                if (prevDoor != 1) {
+                    $('.js-door-1').click();
+                }
                 break;
             case 50:
-                $('.js-door-2').click();
+                if (prevDoor != 2) {
+                    $('.js-door-2').click();
+                }
                 break;
             case 51:
-                $('.js-door-3').click();
+                if (prevDoor != 3) {
+                    $('.js-door-3').click();
+                }
                 break;
             default:
                 break;
