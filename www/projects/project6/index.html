@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!-- Load CSS -->
+        <link rel="stylesheet" href="styles/main.css">
+
+        <!-- Icon links -->
+        <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+
+        <title>Nick Moore | Project 6</title>
+    </head>
+    <body>
+        <header class="header-main">
+            <div class="header-title">
+                <h1 class="header-lowercase gradient-text">Let's Make A Deal</h1>
+            </div>
+            <div class="header-actions">
+                <div class="header-theme-toggle">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" class="js-theme-checkbox"/>
+                        <div class="slider round"></div>
+                    </label>
+                    <span class="iconify sunglasses sunglasses-color" data-icon="mdi:sunglasses"></span>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="description">
+                <h2>Let's Make a Deal</h2>
+                <p>
+                    Select a door...then decide if you want to keep what is behind the door.
+                </p>
+            </div>
+            <div class="game">
+                <h1>Select A Door</h1>
+                <p class="guide-text">(Click on a door or press 1, 2, or 3)</p>
+                <div class="game-doors">
+                    <div class="door  js-door-1" data-value="1">
+                        <h2 class="door-title">Door 1</h2>
+                        <span class="iconify" data-icon="cil:door" data-width="240" data-height="240"></span>                    
+                    </div>
+                    <div class="door  js-door-2" data-value="2">
+                        <h2 class="door-title">Door 2</h2>
+                        <span class="iconify" data-icon="cil:door" data-width="240" data-height="240"></span>                    
+                    </div>
+                    <div class="door  js-door-3" data-value="3">
+                        <h2 class="door-title">Door 3</h2>
+                        <span class="iconify" data-icon="cil:door" data-width="240" data-height="240"></span>                    
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="modal">
+            <div class="modal-box">
+                <div class="modal-content three-choices" id="three-choices">
+                    <div class="modal-header">
+                        <h1>The Choice is yours...</h1>
+                        <div class="close">
+                            <span class="iconify" data-icon="ant-design:close-circle-filled"></span>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-body-header">
+                            <h1>Do you...</h1>
+                        </div>
+                        <div class="modal-body-btns">
+                            <button class="btn keep-btn" data-value="keep">Keep Your Door</button>
+                            <button class="btn another-btn" data-value="another">Select Another Door</button>
+                            <button class="btn take-btn" id="take-btn" data-value="take"></button>
+                        </div>
+                    </div>
+                    <div class="modal-footer" id="modal-footer">
+                    </div>
+                </div>
+                <div class="modal-content winnings" id="winnings">
+                    <div class="modal-header">
+                        <h1>Your Winnings...</h1>
+                        <div class="close">
+                            <span class="iconify" data-icon="ant-design:close-circle-filled"></span>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-body-header">
+                            <h1 class="winnings-amount"></h1>
+                        </div>
+                        <div class="lost">
+                            <h2 class="lost-header">Prizes Lost:</h2>
+                            <div class="lost-items">
+                                <div class="lost-doors">
+                                    <h2 class="lost-title">Doors:</h2>
+                                </div>
+                                <div class="lost-take">
+                                    <h2 class="lost-title">Take:</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body-btns play-again-q">
+                            <h3 class="description">Play Again?</h3>
+                            <button class="btn play-again-btn" id="play-again">Yes</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer" id="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-to-top">
+            <span class="iconify" data-icon="bi:arrow-bar-up"></span>
+        </div>
+        <footer>
+            <div class="footer-left">
+                <h3 class="footer-title">Nick Moore | Project 6 | 2022</h3> 
+            </div>
+            <div class="footer-mid">
+                <!-- Blank on purpose --> 
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/nmoore14" class="footer-link" target="_blank">
+                    <span class="iconify" data-icon="akar-icons:github-fill"></span>
+                </a>
+                <a href="https://discord.io/devrepo" class="footer-link" target="_blank">
+                    <span class="iconify" data-icon="akar-icons:discord-fill"></span>
+                </a>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="js/ThemeToggle.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
