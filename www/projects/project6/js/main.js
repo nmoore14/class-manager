@@ -2,6 +2,7 @@ $( document ).ready(() => {
     // DOM variables
     const modal = $('.modal');
     const modalBox = $('.modal-box');
+    const modalWinnings = $('.modal-winnings');
     const closeModal = $('.close');
     const doors = $('.door');
     const modalBtns = $('.btn');
@@ -9,6 +10,7 @@ $( document ).ready(() => {
     // Game variables
     var doorPrize;
     var prevDoor;
+    var takeAmount;
     var lastPick = false;
     let doorPrizes = {
         door1: 0,
@@ -16,12 +18,13 @@ $( document ).ready(() => {
         door3: 0
     }
 
-    $.each(doorPrizes, (doorPrize) => {
-        doorPrizes[doorPrize] = getRandomPrizeAmount();
-    })
+    function setDoorPrizes() {
+        $.each(doorPrizes, (doorPrize) => {
+            doorPrizes[doorPrize] = getRandomPrizeAmount();
+        })
+    }
 
-    console.log(doorPrizes);
-
+    setDoorPrizes();
 
     function getRandomPrizeAmount() {
         return Math.floor(Math.random() * 100000);
@@ -29,9 +32,6 @@ $( document ).ready(() => {
 
     function getDoorPrize(doorValue) {
         if (! doorPrize || prevDoor != doorValue) {
-            if (doorPrize) {
-                lastPick = true;
-            }
             doorPrize = doorPrizes[doorValue - 1];
             prevDoor = doorValue;
         }
@@ -43,20 +43,90 @@ $( document ).ready(() => {
     }
 
     function setTakeAmount() {
-        const takeAmount = getRandomPrizeAmount();
+        takeAmount = getRandomPrizeAmount();
         $('#take-btn').attr("data-take", takeAmount);
-        $('#take-btn').html(`Take ${takeAmount}`);
+        $('#take-btn').html(`Take $${takeAmount}`);
+    }
+
+    function splitString(text, splitPoint) {
+        const split = [text.slice(0, splitPoint), text.slice(splitPoint)];
+
+        return split;
+    }
+
+    function properUppercase(text) {
+        const proper = text.replace(text.charAt(0), text.charAt(0).toUpperCase());
+
+        return proper;
+    }
+
+    function getLostDoors(prizeDoors, selectedDoor) {
+        $.each(prizeDoors, (prize) => {
+            if (prize === selectedDoor) {
+                delete prizeDoors[prize];
+            }
+        });
+
+        return prizeDoors;
+    }
+
+    function displayResults(take = false) {
+        $('#three-choices').remove();
+        const selectedDoor = `door${prevDoor}`;
+        const lostDoors = getLostDoors({...doorPrizes}, selectedDoor);
+
+
+        if (! take) {
+            $.each(lostDoors, (lost) => {
+                const [door, doorNumber] = splitString(lost, 4);
+                $('.lost-doors').append(
+                    `<p class="missed-winning">${properUppercase(door)} ${doorNumber}: $${doorPrizes[lost]}</p>`
+                );
+            });
+            $('.winnings-amount').html(`<span class="amount">Door ${prevDoor}: $${doorPrizes[selectedDoor]}</span>`);
+            $('.lost-take').append(
+                `<p class="missed-winning">$${takeAmount}</p>`
+            )
+        }
+
+        if (take) {
+            $.each(doorPrizes, (prize) => {
+                const [door, doorNumber] = splitString(prize, 4);
+                $('.lost-doors').append(
+                    `<p class="missed-winning">${properUppercase(door)} ${doorNumber}: $${doorPrizes[prize]}</p>`
+                );
+            });
+            $('.winnings-amount').html(`<span class="amount">Take: $${takeAmount}</span>`);
+            $('.lost-take').css("display", "none");
+        }
+
+        $('#winnings').css("display", "flex");
     }
 
     function confirmSelection(btnValue) {
-        if (confirm("Are you sure?")) {
-            console.log(doorPrize);
-            hideModal();
-            modalBox.toggleClass("modal-box-visible");
-            doorPrize = '';
-            prevDoor = '';
-        } else {
-            console.log('Going back');
+        if (lastPick) {
+            displayResults();
+            return;
+        }
+
+        switch(btnValue) {
+            case "keep":
+                if (confirm("Are you sure?")) {
+                    displayResults();
+                }
+                break;
+            case "another":
+                if (confirm("Are you sure?")) {
+                    lastPick = true;
+                    modalBox.toggleClass("modal-box-visible");
+                    hideModal();
+                }
+                break;
+            case "take":
+                displayResults(true);
+                break;
+            default:
+                break;
         }
     }
 
@@ -64,7 +134,7 @@ $( document ).ready(() => {
         modal.css("display", "none");
 
     }
-    
+
     // Door event handling
     $.each(doors, (_, door) => {
         $(door).click((e) => {
@@ -73,10 +143,13 @@ $( document ).ready(() => {
             getDoorPrize(doorValue);
             setTakeAmount();
             modal.css("display", "flex");
-            setTimeout(() => {
-                modalBox.toggleClass("modal-box-visible")
-                setModalFooter(doorValue);
-            }, 250)
+            modalBox.toggleClass("modal-box-visible")
+            setModalFooter(doorValue);
+            
+            // Immediately show the results if this is a second door pick
+            if (lastPick) {
+                displayResults();
+            }
         });
     })
 
@@ -125,4 +198,7 @@ $( document ).ready(() => {
         });
     })
 
+    $('#play-again').click(() => {
+        location.reload();
+    });
 });
