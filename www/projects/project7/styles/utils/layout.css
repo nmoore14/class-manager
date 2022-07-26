@@ -1,0 +1,22 @@
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-flow: column nowrap;
+}
+
+.flex-col-ac {
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row {
+    flex-flow: row nowrap;
+}
+
+.flex-row-ac {
+    justify-content: center;
+    align-items: center;
+}
