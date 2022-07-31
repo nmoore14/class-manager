@@ -11,7 +11,7 @@ function buildCSV($data) {
 }
 
 if (count($data) > 1) {
-    var_dump(buildCSV($data));
+    buildCSV($data);
 }
 
 ?>
