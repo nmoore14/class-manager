@@ -11,7 +11,7 @@ function buildCSV($data) {
 }
 
 if (count($data) > 1) {
-    buildCSV($data);
+    var_dump(buildCSV($data));
 }
 
 ?>
@@ -51,18 +51,14 @@ if (count($data) > 1) {
                     <fieldset class="fieldset-header">
                         <h1>Customer Information</h1>
                     </fieldset>
-                    <fieldset class="flex flex-row-ac flex-gap-1" id="customer-company-info">
-                        <input type="text" name="customer-company" placeholder="Company" required>
-                        <input type="text" name="customer-position" placeholder="Position">
-                    </fieldset>
                     <fieldset class="flex flex-row-ac flex-gap-1" id="customer-name-info">
                         <input type="text" name="customer-firstname" placeholder="First Name" required>
                         <input type="text" name="customer-lastname" placeholder="Last Name" required>
                     </fieldset>
                     <fieldset class="flex flex-col-ac flex-gap-1" id="customer-address-info">
                         <div class="flex flex-row-rc flex-gap-1 fieldset-item">
-                            <input type="text" name="customer-address-2" placeholder="Address 2">
                             <input type="text" name="customer-address-1" placeholder="Address" required>
+                            <input type="text" name="customer-address-2" placeholder="Address 2">
                         </div>
                         <div class="flex flex-row-rc flex-gap-1 fieldset-item">
                             <input type="text" name="customer-city" placeholder="City" required>
@@ -70,8 +66,23 @@ if (count($data) > 1) {
                             <input type="text" name="customer-zip" placeholder="Zip Code" required>
                         </div>
                     </fieldset>
+                    <fieldset class="flex flex-col-ac flex-gap-1" id="customer-newsletter-info">
+                        <div class="flex flex-row-rc flex-gap-1 fieldset-item">
+                            <h3 class="newsletter-add-title">Add To Newsletter?</h3>
+                        </div>
+                        <div class="flex flex-row-rc flex-gap-1 fieldset-item">
+                            <input type="radio" name="newsletter-group" id="newsletter-yes" value="yes" />
+                            <label for="newsletter-yes" class="radio-label">YES</label>
+                            <input type="radio" name="newsletter-group" id="newsletter-no" value="no" checked />
+                            <label for="newsletter-no "class="radio-label">NO</label>
+                        </div>
+                    </fieldset>
                     <fieldset class="flex flex-col-ac">
                         <textarea name="customer-notes" cols="80" rows="10" placeholder="Enter customer notes here..."></textarea>
+                        <div class="flex flex-row" id="vip-note-clarification">
+                            <input type="checkbox" name="vip-note" id="vip-note-checkbox" value="true">
+                            <label for="vip-note-checkbox" class="checkbox-label">Mark note as ! IMPORTANT !</label>
+                        </div>
                     </fieldset>
                     <fieldset class="flex flex-row-rc flex-gap-1">
                         <input type="reset" name="customer-info-reset" class="btn btn-ghost-error" value="CLEAR">

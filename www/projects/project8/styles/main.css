@@ -254,6 +254,14 @@ main {
     text-align: center;
 }
 
+.radio-label {
+    color: var(--font-color);
+}
+
+.checkbox-label {
+    margin-left: .5rem;
+}
+
 /**********************************************
 ~~~~~~          SCROLL TO TOP            ~~~~~~
 **********************************************/
