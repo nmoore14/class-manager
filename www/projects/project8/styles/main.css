@@ -260,6 +260,7 @@ main {
 
 .checkbox-label {
     margin-left: .5rem;
+    color: var(--font-color);
 }
 
 /**********************************************
