@@ -1,0 +1,20 @@
+.btn {
+    color: var(--font-color-secondary);
+    background: var(--linear-button);
+    border: none;
+    border-radius: .5rem;
+    font-family: var(--code-font);
+    font-size: 1.25rem;
+    padding: .5rem 1rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.btn-ghost-error {
+    background: none;
+    color: var(--error-1);
+    text-decoration: underline;
+}

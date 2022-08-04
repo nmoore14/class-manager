@@ -1,0 +1,32 @@
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-flow: column nowrap;
+}
+
+.flex-col-ac {
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row {
+    flex-flow: row nowrap;
+}
+
+.flex-row-ac {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-rc {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-gap-1 {
+    row-gap: 1rem;
+    column-gap: 1rem;
+}
