@@ -3,6 +3,7 @@ require __DIR__ . "/bootstrap.php";
 
 // Load the API controller(s)
 require PROJECT_ROOT_PATH . "/controller/StoriesController.php";
+require PROJECT_ROOT_PATH . "/controller/StoryController.php";
 
 // Build my api paths array
 $api_paths = array('stories', 'story');
@@ -23,10 +24,15 @@ if((isset($uri[3]) &&!in_array($uri_api_path, $api_paths)) || !isset($uri[4])) {
 
 // Initialize API controllers
 $storiesController = new StoriesController();
+$storyController = new StoryController();
 
 if ($uri_api_path == 'stories') {
     $strMethodName = $uri_api_method . "Stories";
     $storiesController->{$strMethodName}();
 }
 
+if ($uri_api_path == 'story') {
+    $strMethodName = $uri_api_method . "Story";
+    $storyController->{$strMethodName}();
+}
 ?>

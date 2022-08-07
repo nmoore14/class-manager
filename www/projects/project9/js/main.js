@@ -9,6 +9,22 @@ class App {
     getStories() {
         return this.stories
     }
+
+    getStoryById(id) {
+        for(let i = 0; i < this.stories.length; i++) {
+            if (this.stories[i].id === id) {
+                return this.stories[i];
+            }
+        }
+    }
+
+    getWordsByStoryId(id) {
+        for(let i = 0; i < this.stories.length; i++) {
+            if (this.stories[i].id === id) {
+                return this.stories[i].words[0];
+            }
+        }
+    }
 }
 
 $( document ).ready(() => {
@@ -23,7 +39,8 @@ $( document ).ready(() => {
         const pathname = $(location).attr('pathname');
 
         if (host === 'localhost') {
-            return `${pathname}/api/index.php/stories/list`
+            $('#words-form').attr('action', `${pathname}api/index.php/story/build`);
+            return `${pathname}api/index.php/stories/get`
         }
     }
 
@@ -36,18 +53,59 @@ $( document ).ready(() => {
         });
     }
 
+    function formatWordName(word) {
+        word = word.split('-');
+
+        return word.join(' ');
+    }
+
     function buildStoriesList() {
         const stories = $.myApp.getStories();
 
-        console.log(stories);
+
         $.each(stories, (i, story) => {
+            console.log(story.words[0]);
             $storyList.append(
                 `<div class="flex flex-col-ac story-list-item" data-story-id="${story.id}">
                     <h1>${story.title}</h1>
-                    <h3>${story.type}</h3>
-                    <p>Word Count: ${story.words.length}</p>
+                    <p>Word Count: ${story.words[0].length}</p>
                 </div>`
             )
+        })
+
+        addStoryItemClick();
+    }
+
+    function addStoryItemClick() {
+        const storyItems = $('.story-list-item');
+
+        $.each(storyItems, (i, item) => {
+            $(item).click((e) => {
+                buildWordForm($(e.currentTarget).data('story-id'));
+            })
+        })
+    }
+
+
+
+    function buildWordForm(storyId) {
+        const words = $.myApp.getWordsByStoryId(storyId) 
+        const formFieldset = $('#word-inputs');
+
+        console.log(words);
+
+        if ($(formFieldset).children().length > 1) {
+            $(formFieldset).empty();
+        }
+
+        $(formFieldset).append(
+            `<input type="hidden" name="story-id" value="${storyId}">`
+        );
+
+        $.each(words, (i, word) => {
+            $(formFieldset).append(
+                `<input type="text" name="${word}" class="word-input" id="${word}" placeholder="${formatWordName(word)}">`
+            );
         })
     }
 
