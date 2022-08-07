@@ -1,0 +1,3 @@
+This is my multi-line test <%noun-1%>.
+It has multiple <%plural-noun-1%>, hopefully this will not break the program.
+Thank you for <%ing-verb-1%> my app.

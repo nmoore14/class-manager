@@ -242,6 +242,10 @@ main {
     cursor: pointer;
 }
 
+.words {
+    display: none;
+}
+
 .words-form {
     width: 30rem;
     margin: 1rem;
@@ -268,6 +272,22 @@ main {
 
 .fieldset-header {
     text-align: center;
+}
+
+.story-display {
+    width: 45rem;
+    height: auto;
+}
+
+.story {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+}
+
+.mad-word {
+    color: var(--error-1);
+    font-size: 1.75rem;
+    text-decoration: underline;
 }
 
 /**********************************************
