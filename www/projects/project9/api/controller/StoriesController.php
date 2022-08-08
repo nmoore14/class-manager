@@ -47,24 +47,19 @@ class StoriesController extends BaseController {
     }
 
     public function getStoryInfo($title) {
-        try {
-            $story_path = "./templates/" . $title;
-            $story = fopen($story_path, "r");
-            $story_words = array();
+        $story_path = "./templates/" . $title;
+        $story = fopen($story_path, "r");
+        $story_words = array();
 
-            if ($story) {
-                while (($line = fgets($story)) !== false) {
-                    $word = $this->getStoryWords($line);
-                    array_push($story_words, $word);
-                }
+        if ($story) {
+            while (($line = fgets($story)) !== false) {
+                $word = $this->getStoryWords($line);
+                array_push($story_words, $word);
             }
-
-            fclose($story);
-            return $story_words;
-        } catch (Error $e) {
-            $strErrorDesc = $e->getMessage().'Something went wrong.';
-            $strErrorHeader = 'HTTP/1.1 500 Internal server error.';
         }
+
+        fclose($story);
+        return $story_words;
     }
 
     function getStoryWords($line) {

@@ -45,11 +45,10 @@ $( document ).ready(() => {
     function getUrl() {
         const host = $(location).attr('host');
         const pathname = $(location).attr('pathname');
+        
+        $('#words-form').attr('action', `${pathname}api/index.php/story/build`);
 
-        if (host === 'localhost') {
-            $('#words-form').attr('action', `${pathname}api/index.php/story/build`);
-            return `${pathname}api/index.php`
-        }
+        return `${pathname}api/index.php`
     }
 
     function fetchStories() {
