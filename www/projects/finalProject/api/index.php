@@ -2,11 +2,10 @@
 require __DIR__ . "/bootstrap.php";
 
 // Load the API controller(s)
-require PROJECT_ROOT_PATH . "/controller/StoriesController.php";
-require PROJECT_ROOT_PATH . "/controller/StoryController.php";
+require PROJECT_ROOT_PATH . "/controller/BooksController.php";
 
 // Build my api paths array
-$api_paths = array('stories', 'story');
+$api_paths = array('books', 'authors', 'genres');
 
 // Parse the URI
 $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
@@ -23,16 +22,10 @@ if((isset($uri[3]) &&!in_array($uri_api_path, $api_paths)) || !isset($uri[4])) {
 }
 
 // Initialize API controllers
-$storiesController = new StoriesController();
-$storyController = new StoryController();
+$booksController = new BooksController();
 
-if ($uri_api_path == 'stories') {
-    $strMethodName = $uri_api_method . "Stories";
+if ($uri_api_path == 'books') {
+    $strMethodName = $uri_api_method . "Books";
     $storiesController->{$strMethodName}();
-}
-
-if ($uri_api_path == 'story') {
-    $strMethodName = $uri_api_method . "Story";
-    $storyController->{$strMethodName}();
 }
 ?>
