@@ -12,6 +12,8 @@ services:
     networks:
       - edu-docker
   www:
+    build:
+      dockerfile: Dockerfile
     depends_on:
       - db
     image: php:7.4.1-apache
