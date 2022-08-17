@@ -2,7 +2,7 @@
 // include my db
 include_once PROJECT_ROOT_PATH . '/db.php';
 
-class BooksController extends BaseController {
+class AuthorsController extends BaseController {
     protected $library = null;
 
     public function __construct() {
@@ -15,8 +15,8 @@ class BooksController extends BaseController {
         return $this->library;
     }
 
-    public function getBooks() {
-        $data = $this->library->fetch('Books');
+    public function getAuthors() {
+        $data = $this->library->fetch('Authors');
 
         // Send the output
         if ($data) {
