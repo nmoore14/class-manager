@@ -8,8 +8,9 @@
 
         <!-- Icon links -->
         <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+        <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
 
-        <title>Nick Moore | Project 9</title>
+        <title>Nick Moore | Library</title>
     </head>
     <body>
         <header class="header-main">
@@ -28,11 +29,47 @@
         </header>
         <main>
             <div class="main-header">
+                <h1>Custom Book Library</h1>
+            </div>
+            <div class="main-content">
+                <div class="flex flex-row library-actions">
+                    <div class="library-action-search">
+                        <input type="text" name="library-search" class="library-search" id="library-search" placeholder="Search...">
+                    </div>
+                    <div class="flex flex-row library-action-buttons">
+                        <button class="library-action-btn add-book-btn">
+                            <iconify-icon icon="bxs:book-add"></iconify-icon>
+                        </button>
+                        <button class="library-action-btn add-author-btn">
+                            <iconify-icon icon="bxs:user-plus"></iconify-icon>
+                        </button>
+                        <button class="library-action-btn add-genre-btn">
+                            <iconify-icon icon="clarity:world-solid-badged"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="library-list">
+                    <table class="library" id="libary">
+                        <thead class="library-headers">
+                            <tr class="headers">
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Genre</th>
+                                <th>Description</th>
+                                <th>Page Count</th>
+                                <th>Read</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="library-content" id="library-content">
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
         <footer>
             <div class="footer-left">
-                <h3 class="footer-title">Nick Moore | Project 9 | 2022</h3> 
+                <h3 class="footer-title">Nick Moore | Library | 2022</h3> 
             </div>
             <div class="footer-mid">
                 <!-- Blank on purpose --> 
